@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { join } from 'path';
 import { readdirSync } from 'fs';
-import { Events, GatewayIntentBits } from 'discord.js';
+import { GatewayIntentBits } from 'discord.js';
 
 import DiscordClient from './client';
 
@@ -28,7 +28,7 @@ for (const file of handlerFiles) {
 
 console.log('Handler Loading Done');
 
-
+/*
 client.once(Events.ClientReady, c => {
   console.log(`Ready! Logged in as ${c.user.tag }`);
 });
@@ -56,5 +56,5 @@ client.on(Events.InteractionCreate, async interaction => {
     }
   }
 });
-
+*/
 client.login(process.env.DISCORD_TOKEN);
