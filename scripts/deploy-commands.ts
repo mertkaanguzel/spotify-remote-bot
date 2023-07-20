@@ -6,25 +6,10 @@ import { readdirSync } from 'fs';
 
 const commands: any[] = [];
 
-//const commandsPath = join(__dirname, '../commands');
-//const commandFiles = readdirSync(commandsPath).filter(file => file.endsWith('.ts'));
 const foldersPath = join(__dirname, '../commands');
 const commandFolders = readdirSync(foldersPath);
 
 (async () => {
-/*
-  for (const file of commandFiles) {
-    const filePath = join(commandsPath, file);
-    const command  = await import(filePath);
-  
-    if (!command.default.data || !command.default.execute) {
-      console.log(`[ERROR] ${file} command file not loaded`);
-      continue;
-    }
-  
-    commands.push(command.default.data.toJSON());
-  }
-  */
   for (const folder of commandFolders) {
     const commandsPath = join(foldersPath, folder);
     const commandFiles = readdirSync(commandsPath).filter(file => file.endsWith('.ts'));
